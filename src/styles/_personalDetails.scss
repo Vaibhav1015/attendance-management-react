@@ -1,0 +1,64 @@
+.personalDetailsDiv {
+  .tab-content {
+    overflow: auto;
+  }
+  .headerText {
+    color: #012169;
+    margin: 1rem;
+    font-weight: 600;
+  }
+  .detailsDiv {
+    margin: 1rem;
+    overflow: auto;
+
+    .titleDiv {
+      color: #6a8299;
+      font-weight: 400;
+    }
+    .infoDiv {
+      color: #1a1515;
+    }
+  }
+}
+
+//personal detail form scss
+
+.personal-detail-form {
+  .main-form {
+    .edit-input {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      .form-inputs {
+        width: 100%;
+      }
+      .inputs {
+        height: 50px !important;
+      }
+    }
+    .job-title-dropdown {
+      .job-dropdown {
+        width: 100%;
+        height: 40px;
+      }
+    }
+    .bloodGroup-dropdown {
+      .bloodGrp-dropdown {
+        width: 100%;
+        height: 40px;
+      }
+    }
+    .form-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    .edit-detail-footer {
+      border: none;
+    }
+    .error {
+      font-size: 14px;
+    }
+  }
+}

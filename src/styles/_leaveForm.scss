@@ -1,0 +1,23 @@
+.leaveFormDetailsDiv {
+  .headerText {
+    color: #012169;
+    margin: 1rem;
+    font-weight: 600;
+  }
+  .detailsDiv {
+    margin: 1rem;
+    .typeNameDiv {
+      color: #012169;
+      font-weight: 400;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .dateDiv {
+      width: 25% !important;
+    }
+    .statusDiv {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

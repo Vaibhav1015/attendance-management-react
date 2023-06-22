@@ -1,0 +1,42 @@
+.holiday-main {
+  height: 100%;
+  .main-wrapper {
+    height: 100%;
+    .add-holiday-icon {
+      background-color: #2f47ba;
+      color: white;
+      display: flex;
+      height: 50px;
+      // width: 175px;
+      align-items: center;
+      border-radius: 5px;
+      justify-content: space-between;
+      .add-icon-holiday {
+        font-size: 22px;
+        margin-right: 5px;
+      }
+    }
+    .row {
+      height: 100%;
+      padding: 10px;
+      .card-main-body {
+        width: 100%;
+        height: calc(100% - 110px);
+        .card-body {
+          height: 100%;
+          padding: 0;
+          //   overflow: scroll;
+        }
+        .table-responsive {
+          height: calc(100% - 55px);
+          overflow: auto;
+          .holiday-thead {
+            top: 0px;
+            background: white;
+            position: sticky;
+          }
+        }
+      }
+    }
+  }
+}

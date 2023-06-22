@@ -1,0 +1,52 @@
+.profileContainer {
+  background-color: lighten($color: #5991b2, $amount: 41%);
+  height: 100%;
+  .titleText {
+    color: #0f1d35;
+    padding-top: 10px;
+    margin-left: 50px;
+  }
+  .profileDetailContent {
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: calc(100% - 42px);
+
+    .imageContainer {
+      width: 25%;
+      text-align: center;
+      height: fit-content;
+      .imgDiv {
+        margin: 8px 0px;
+        img {
+          border-radius: 50%;
+        }
+      }
+      .nameDiv {
+        color: #0f1d35;
+        text-align: center;
+        margin-bottom: 6px;
+      }
+      .emailDiv {
+        color: #0f1d35;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+    .userDetailsDiv {
+      width: 70%;
+
+      .nav-underline .nav-link.active,
+      .nav-underline .show > .nav-link {
+        font-weight: 400;
+        color: rgb(43, 102, 231);
+        border-bottom-color: currentcolor;
+      }
+      .nav-link {
+        color: black;
+        cursor: pointer;
+      }
+    }
+  }
+}

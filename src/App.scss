@@ -1,0 +1,28 @@
+@import "./index.css";
+@import "./styles/logIn.scss";
+@import "./styles/reactInput";
+@import "./styles/variables";
+@import "./styles/employee";
+@import "./styles/profileDetail";
+@import "./styles/holiday";
+@import "./styles/personalDetails";
+@import "./styles/education";
+@import "./styles/bankAccounts";
+@import "./styles/documents";
+@import "./styles/dashboard";
+@import "./styles/project";
+@import "./styles/leave";
+@import "./styles/leaveForm";
+@import "./styles/salary";
+@import "./styles/loadingSpinner";
+@import "./styles/attendance";
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}

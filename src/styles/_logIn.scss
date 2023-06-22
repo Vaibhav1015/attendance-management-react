@@ -1,0 +1,38 @@
+// /*-----------------
+// 	18. Login
+// -----------------------*/
+
+html,
+body,
+.App,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+.login-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  .login-form {
+    width: 450px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    // border-radius: 20px;
+    padding: 10px;
+    .login-logo {
+      width: 100%;
+    }
+    .password-error {
+      background-color: rgba(241, 111, 109, 0.1);
+      border: solid 1px #f16f6d;
+      display: flex;
+      justify-content: center;
+      padding: 5px;
+      margin: 10px 0;
+    }
+    .submit-button {
+      margin: 15px 0;
+    }
+  }
+}

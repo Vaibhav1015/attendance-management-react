@@ -1,0 +1,14 @@
+.salaryDetailsDiv {
+  .headerText {
+    color: #012169;
+    margin: 1rem;
+    font-weight: 600;
+  }
+  .detailsDiv {
+    margin: 1rem;
+    .viewClass,
+    .deleteDiv {
+      cursor: pointer;
+    }
+  }
+}

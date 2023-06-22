@@ -1,0 +1,118 @@
+//add project scss
+
+.add-project-form {
+  .row {
+    height: calc(100% - 72px);
+    padding: 15px 15px 15px 15px;
+  }
+  .main-form {
+    .name-input {
+      width: 100%;
+
+      .form-inputs {
+        width: 100%;
+      }
+      .inputs {
+        height: 50px !important;
+      }
+      .emp-dropdown {
+        height: 100px;
+        width: 100%;
+        border-color: #ced4da;
+        margin-bottom: 25px;
+        border-radius: 5px;
+      }
+      .form-dropdown {
+        width: 100%;
+        height: 50px;
+        border-color: #ced4da;
+        margin-bottom: 25px;
+        border-radius: 5px;
+      }
+    }
+
+    .dropdown-error {
+      display: flex;
+      font-size: 14px;
+    }
+    .form-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+.email-error {
+  background-color: rgba(241, 111, 109, 0.1);
+  border: solid 1px #f16f6d;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+//project scss
+.projects {
+  padding: 10px;
+  height: 100%;
+  .main-card {
+    height: 100%;
+  }
+  .project-buttons {
+    display: flex;
+    justify-content: space-between;
+    .project-count {
+      background-color: #2f47ba;
+      color: white;
+      display: flex;
+      height: 50px;
+      width: 130px;
+      align-items: center;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    .add-project {
+      justify-content: space-between;
+      background-color: #2f47ba;
+      color: white;
+      display: flex;
+      height: 50px;
+      width: 155px;
+      align-items: center;
+      border-radius: 5px;
+      .add-icon {
+        font-size: 20px;
+      }
+    }
+  }
+  .table-main {
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-top: 15px;
+    height: calc(100% - 137px);
+    .table-heading {
+      margin-left: 8px;
+    }
+    .table-responsive {
+      height: calc(100% - 38px);
+      overflow-x: auto;
+      .thead {
+        top: 0;
+        background: white;
+        position: sticky;
+      }
+      .delete-icon {
+        cursor: pointer;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+      .edit-icon {
+        cursor: pointer;
+        font-size: 18px;
+      }
+    }
+  }
+}
+.dates {
+  width: 100%;
+  height: 50px;
+}

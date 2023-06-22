@@ -1,0 +1,188 @@
+.main-wrapper {
+  height: calc(100% - 72px);
+  padding: 15px;
+  .employee_count {
+    background-color: #2f47ba;
+    color: white;
+    display: flex;
+    height: 50px;
+    width: 130px;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .user-image {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    border-radius: 30px;
+    justify-content: center;
+  }
+  .add-people {
+    background: gray;
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 130px;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .head-link-set {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 10px 0px;
+    align-items: center;
+    .add-employee {
+      background-color: #2f47ba;
+      color: white;
+      display: flex;
+      height: 50px;
+      // width: 175px;
+      align-items: center;
+      border-radius: 5px;
+      justify-content: space-between;
+      .employee-icon {
+        font-size: 22px;
+        margin-right: 5px;
+      }
+    }
+  }
+  .table-heading {
+    padding: 7px;
+    border-bottom: 1px solid gray;
+  }
+  .main-card {
+    height: calc(100% - 141px);
+    .table-responsive {
+      height: calc(100% - 83px);
+      .thead {
+        top: 0;
+        background: white;
+        position: sticky;
+      }
+    }
+    .delete-icon {
+      cursor: pointer;
+    }
+    .view-icon {
+      cursor: pointer;
+    }
+  }
+}
+
+//add employee form
+
+.addEmployee-form {
+  height: 100%;
+  .row {
+    height: calc(100% - 72px);
+    padding: 15px 15px 15px 15px;
+  }
+  .main-form {
+    .name-input {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      .form-inputs {
+        width: 100%;
+      }
+      .inputs {
+        height: 50px !important;
+      }
+    }
+    .form-dropdown {
+      width: 50%;
+      height: 50px;
+      border-color: #ced4da;
+      margin-bottom: 25px;
+      border-radius: 5px;
+    }
+    .dropdown-error {
+      display: flex;
+      font-size: 14px;
+      margin-top: -25px;
+    }
+    .form-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    .employee-footer {
+      border: none;
+    }
+    .controller-input {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      .emp-dropdown-select {
+        width: 100%;
+      }
+      .controller-dropdown {
+        width: 100%;
+        height: 50px;
+        border-color: #ced4da;
+        margin-bottom: 25px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+.email-error {
+  background-color: rgba(241, 111, 109, 0.1);
+  border: solid 1px #f16f6d;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.paginationMain {
+  display: flex;
+  padding: 10px;
+  margin: 0;
+}
+
+.paginationMainHide {
+  display: none;
+}
+
+.paginationMain li {
+  height: 33px;
+  width: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gainsboro;
+  border-radius: 4px;
+  color: #4b4b55;
+  margin: 0px 3px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.paginationMain li:last-child {
+  display: none;
+}
+.paginationMain li:first-child {
+  display: none;
+}
+
+.activePageClass {
+  background-color: #0d6efd;
+}
+
+.activePageClass a {
+  color: #fff !important;
+}
+
+.paginationMain li a {
+  text-decoration: none !important;
+  color: black;
+}
+.activePageClass a {
+  color: #fff !important;
+}

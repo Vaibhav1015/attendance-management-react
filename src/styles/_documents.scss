@@ -1,0 +1,50 @@
+.documentsDetailsDiv {
+  .headerText {
+    color: #012169;
+    margin: 1rem;
+    font-weight: 600;
+  }
+  .detailsDiv {
+    margin: 1rem;
+    .uploadBtn {
+      background-color: transparent;
+      color: black;
+      border-color: #012169;
+    }
+    .documentListDiv {
+      margin-top: 20px;
+      border: 1px solid rgb(235, 228, 228);
+      ul {
+        list-style: Auto;
+        li {
+          cursor: pointer;
+          .documentName,
+          .deleteBtn,
+          .viewBtn {
+            color: #012169;
+          }
+          .documentName {
+            font-weight: 600;
+          }
+          .deleteBtn:hover {
+            color: red;
+            font-weight: 600;
+          }
+          .viewBtn:hover {
+            scale: 1.1;
+          }
+        }
+      }
+    }
+  }
+}
+
+// DocumentForm CSS
+
+.documentModal {
+  .uploadLabelDiv {
+    // border: 1px solid #012169;
+    // margin-left: 8px !important;
+    color: #012169 !important;
+  }
+}
