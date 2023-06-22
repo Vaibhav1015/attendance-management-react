@@ -34,6 +34,11 @@ const AddAttendance = ({
                             <h1 className="modal-title fs-5" id="exampleModalLabel">
                                 Add Attendance
                             </h1>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                aria-label="Close"
+                            ></button>
                         </div>
                         <div className="addAttendance-form modal-body">
                             <form onSubmit={handleSubmit(onSubmit)}>
@@ -56,7 +61,7 @@ const AddAttendance = ({
                                     </div>
                                     <div>
                                         <table class="table table-bordered">
-                                            <thead className="thead">
+                                            <thead className="thead text-center">
                                                 <tr>
                                                     <th scope="col">Roll No</th>
                                                     <th scope="col">Student Name</th>
@@ -65,11 +70,42 @@ const AddAttendance = ({
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <tr className="text-center">
                                                     <td>1</td>
                                                     <td>Vaibhav Andhale</td>
-                                                    <td>P</td>
-                                                    <td>P </td>
+                                                    <td>
+                                                        <div className="attendance-check">
+                                                            <input
+                                                                class="form-check-input"
+                                                                type="radio"
+                                                                name="flexRadioDefault"
+                                                                id="flexRadioDefault1"
+                                                            />
+                                                            {/* <label
+                                                                class="form-check-label"
+                                                                for="flexRadioDefault1"
+                                                            >
+                                                                Default radio
+                                                            </label> */}
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div className="attendance-check">
+                                                            <input
+                                                                class="form-check-input"
+                                                                type="radio"
+                                                                name="flexRadioDefault"
+                                                                id="flexRadioDefault2"
+                                                                checked
+                                                            />
+                                                            {/* <label
+                                                                class="form-check-label"
+                                                                for="flexRadioDefault2"
+                                                            >
+                                                                Default checked radio
+                                                            </label> */}
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
