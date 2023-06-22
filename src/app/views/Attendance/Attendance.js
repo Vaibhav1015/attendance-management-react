@@ -1,4 +1,5 @@
 import React from "react";
+import AddAttendance from "./AddAttendance";
 
 const Attendance = () => {
   return (
@@ -10,8 +11,16 @@ const Attendance = () => {
           </div>
           <div>
             <button>Report</button>
-            <button>ADD</button>
+            <button data-bs-toggle="modal"
+              data-bs-target="#exampleModal">ADD</button>
           </div>
+          <AddAttendance
+            className="modal fade"
+            id="exampleModal"
+            tabIndex="-1"
+            arialabelledby={"exampleModalLabel"}
+            ariaHidden="true"
+          />
         </div>
       </div>
     </>

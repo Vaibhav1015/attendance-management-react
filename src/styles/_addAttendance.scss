@@ -1,0 +1,18 @@
+.addAttendance-form {
+  .attendance-footer{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .addAttendance_main-form {
+    .attendance_date {
+      display: flex;
+      .date_label {
+        width: 22%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+    }
+  }
+}
