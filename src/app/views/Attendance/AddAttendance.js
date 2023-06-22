@@ -38,6 +38,7 @@ const AddAttendance = ({
                                 type="button"
                                 class="btn-close"
                                 aria-label="Close"
+                                data-bs-dismiss="modal"
                             ></button>
                         </div>
                         <div className="addAttendance-form modal-body">
