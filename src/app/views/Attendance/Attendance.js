@@ -12,7 +12,13 @@ const Attendance = () => {
           </div>
           <div className="attendance-div-btn">
             <button className="report-btn">Report</button>
-            <button className="add-btn">ADD</button>
+            <button
+              className="add-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              ADD
+            </button>
           </div>
         </div>
         <div className="show-search-main">
@@ -21,10 +27,6 @@ const Attendance = () => {
             <input min="1" className="input-number" type="number" /> entries
           </div>
           <div>
-            <button>Report</button>
-            <button data-bs-toggle="modal" data-bs-target="#exampleModal">
-              ADD
-            </button>
             Search
             <input className="input-search" type="text" />
           </div>
@@ -62,6 +64,13 @@ const Attendance = () => {
           </table>
         </div>
       </div>
+      <AddAttendance
+        className="modal fade"
+        id="exampleModal"
+        tabIndex="-1"
+        arialabelledby={"exampleModalLabel"}
+        ariaHidden="true"
+      />
     </>
   );
 };
