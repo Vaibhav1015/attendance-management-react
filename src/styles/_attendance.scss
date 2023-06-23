@@ -1,5 +1,6 @@
 .attendance-main {
   border: 1px solid black;
+  border-radius: 5px;
   height: calc(100% - 125px);
   margin: 20px;
   .sub-main-div {
@@ -27,7 +28,7 @@
     .input-number {
       height: 30px;
       width: 60px;
-      margin: 5px 0px 5px 5px;
+      margin: 5px;
     }
     .input-search {
       margin: 5px 5px 5px 5px;
@@ -38,6 +39,7 @@
     padding: 15px;
     .table {
       border: 1px solid black;
+      border-radius: 5px;
     }
   }
 }

@@ -1,8 +1,25 @@
 import { right } from "@popperjs/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AddAttendance from "./AddAttendance";
 
 const Attendance = () => {
+  const [attendanceList, setAttendanceList] = useState([]);
+
+  useEffect(() => {
+    const fetchAttendanceData = async () => {
+      const response = await fetch(
+        "http://192.168.5.85:5000/api/attendance-list"
+      );
+      if (!response.ok) {
+        throw new Error("Something Went wrong ");
+      }
+      const data = await response.json();
+      console.log(data.list);
+      setAttendanceList(data.list);
+    };
+    fetchAttendanceData();
+  }, []);
+
   return (
     <>
       <div className="attendance-main">
@@ -24,7 +41,8 @@ const Attendance = () => {
         <div className="show-search-main">
           <div>
             Show
-            <input min="1" className="input-number" type="number" /> entries
+            <input min="1" max="10" className="input-number" type="number" />
+            entries
           </div>
           <div>
             Search
@@ -32,34 +50,22 @@ const Attendance = () => {
           </div>
         </div>
         <div className="table-main-div">
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">Teacher Name</th>
-                <th scope="col">Roll Number</th>
                 <th scope="col">Attendance Status</th>
                 <th scope="col">Attendance Date</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">Tejas Khichade</th>
-                <td>1</td>
-                <td>Present</td>
-                <td>2023-06-22</td>
-              </tr>
-              <tr>
-                <th scope="row">Vaibhav Andhale</th>
-                <td>2</td>
-                <td>Absent</td>
-                <td>2023-06-22</td>
-              </tr>
-              <tr>
-                <th scope="row">Vishal Kamble</th>
-                <td>3</td>
-                <td>Present</td>
-                <td>2023-06-23</td>
-              </tr>
+              {attendanceList.map((item) => (
+                <tr key={item._id}>
+                  <th scope="row">{item.name}</th>
+                  <td>{item.attendanceStatus ? "present" : "Absent"}</td>
+                  <td>{item.date}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
