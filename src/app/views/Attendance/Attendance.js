@@ -62,7 +62,7 @@ const Attendance = () => {
               {attendanceList.map((item) => (
                 <tr key={item._id}>
                   <th scope="row">{item.name}</th>
-                  <td>{item.attendanceStatus ? "present" : "Absent"}</td>
+                  <td>{item.present ? "present" : "Absent"}</td>
                   <td>{item.date}</td>
                 </tr>
               ))}

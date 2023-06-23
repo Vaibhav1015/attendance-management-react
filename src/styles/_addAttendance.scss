@@ -1,5 +1,5 @@
 .addAttendance-form {
-  .attendance-footer{
+  .attendance-footer {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
@@ -14,9 +14,20 @@
         margin-bottom: 18px;
       }
     }
-    .attendance-check{
+    .attendance-check {
       display: flex;
       justify-content: center;
     }
+  }
+  .table > thead {
+    vertical-align: bottom;
+    position: sticky;
+    top: 0;
+    background: white;
+  }
+
+  .attendanceDivList {
+    overflow: auto;
+    height: 400px;
   }
 }

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { object } from "yup";
 
 const AddAttendance = ({
   id,
@@ -9,15 +10,19 @@ const AddAttendance = ({
   className,
   ariaHidden,
 }) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
   const [showForm, setShowForm] = useState(true);
-  const onSubmit = () => {};
+  const [attDate, setAttDate] = useState();
   const [teacherData, setTeacherData] = useState([]);
+
+  const onChangeValue = (id, present) => {
+    let list = teacherData.map((ele) => {
+      if (ele._id === id) {
+        Object.assign(ele, { present });
+      }
+      return ele;
+    });
+    setTeacherData(list);
+  };
 
   useEffect(() => {
     const fetchAttendanceData = async () => {
@@ -26,23 +31,38 @@ const AddAttendance = ({
         throw new Error("Something Went wrong ");
       }
       const data = await response.json();
-
-      setTeacherData(data.list);
+      let list = data.list.map((ele) =>
+        Object.assign(ele, { present: "false" })
+      );
+      setTeacherData(list);
     };
     fetchAttendanceData();
   }, []);
 
-  const userListName = () => {
-    const name = teacherData.map((item) => ({
-      name: item.firstName + " " + item.lastName,
-      id: item._id,
-    }));
-    return name;
-  };
+  const postData = teacherData.map((ele) => {
+    const newObj = Object.assign({
+      date: attDate,
+      name: ele.firstName + " " + ele.lastName,
+      present: ele.present,
+    });
+    return newObj;
+  });
 
-  const addData = () => {
-    const userData = userListName();
-    console.log(userData);
+  const addData = (e) => {
+    e.preventDefault();
+
+    try {
+      fetch("http://192.168.5.85:5000/api/add-attendance", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postData),
+      });
+    } catch (err) {
+      console.error("Error:", err);
+    }
+    console.log("postData >>>", postData);
   };
 
   return (
@@ -69,25 +89,18 @@ const AddAttendance = ({
               ></button>
             </div>
             <div className="addAttendance-form modal-body">
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form>
                 <div className="addAttendance_main-form ">
                   <div className="attendance_date">
                     <label className="date_label">Attendance Date</label>
                     <input
                       type="date"
                       className="dates mb-3"
-                      {...register("date", {
-                        required: "Date is required",
-                        valueAsDate: true,
-                      })}
+                      value={attDate}
+                      onChange={(e) => setAttDate(e.target.value)}
                     />
-                    {errors.date && (
-                      <span className=" text-danger">
-                        Start date is required
-                      </span>
-                    )}
                   </div>
-                  <div>
+                  <div className="attendanceDivList">
                     <table className="table table-bordered">
                       <thead className="thead text-center">
                         <tr>
@@ -104,24 +117,42 @@ const AddAttendance = ({
                             </th>
                             <td>
                               <div className="form-check form-check-inline">
-                                <input
-                                  className="form-check-input"
-                                  type="radio"
-                                  name={`${(item.firstName, item.lastName)}`}
-                                  id={item._id}
-                                  value="option1"
-                                />
+                                <label>
+                                  <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name={`${item.firstName + item.lastName}`}
+                                    id={item._id}
+                                    value="true"
+                                    checked={"true" === item.present}
+                                    onChange={(e) =>
+                                      onChangeValue(
+                                        item._id,
+                                        e.currentTarget.value
+                                      )
+                                    }
+                                  />
+                                </label>
                               </div>
                             </td>
                             <td>
                               <div className="form-check form-check-inline">
-                                <input
-                                  className="form-check-input"
-                                  type="radio"
-                                  name={`${(item.firstName, item.lastName)}`}
-                                  id={item._id}
-                                  value="option1"
-                                />
+                                <label>
+                                  <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name={`${item.firstName + item.lastName}`}
+                                    id={item._id}
+                                    value="false"
+                                    checked={"false" === item.present}
+                                    onChange={(e) =>
+                                      onChangeValue(
+                                        item._id,
+                                        e.currentTarget.value
+                                      )
+                                    }
+                                  />
+                                </label>
                               </div>
                             </td>
                           </tr>
@@ -135,6 +166,7 @@ const AddAttendance = ({
                     className="btn btn-success"
                     type="submit"
                     onClick={addData}
+                    data-bs-dismiss="modal"
                   >
                     Add
                   </button>
@@ -142,7 +174,6 @@ const AddAttendance = ({
                     type="button"
                     className="btn btn-danger"
                     data-bs-dismiss="modal"
-                    onClick={() => reset()}
                   >
                     Close
                   </button>
