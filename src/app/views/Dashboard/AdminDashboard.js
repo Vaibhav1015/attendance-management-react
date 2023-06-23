@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import Charts from "../../components/Charts";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -50,6 +51,9 @@ const AdminDashboard = () => {
                   <p className="card-text">{count && count.leaveCount}</p>
                 </div>
               </div>
+            </div>
+            <div>
+              <Charts />
             </div>
           </div>
         </div>

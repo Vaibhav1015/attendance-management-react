@@ -51,7 +51,7 @@ const Attendance = () => {
         </div>
         <div className="table-main-div">
           <table className="table">
-            <thead>
+            <thead className="table-head">
               <tr>
                 <th scope="col">Teacher Name</th>
                 <th scope="col">Attendance Status</th>

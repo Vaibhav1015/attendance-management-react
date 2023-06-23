@@ -36,10 +36,17 @@
     }
   }
   .table-main-div {
-    padding: 15px;
+    height: calc(100% - 83px);
+    overflow: auto;
+    padding: 0px 15px;
     .table {
       border: 1px solid black;
       border-radius: 5px;
+      .table-head {
+        position: sticky;
+        top: 0;
+        background: white;
+      }
     }
   }
 }
