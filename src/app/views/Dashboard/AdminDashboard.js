@@ -3,8 +3,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import Charts from "../../components/Charts";
+import DropDown from "../../components/DropDown";
+import PieChart from "../../components/PieChart";
 
 const AdminDashboard = () => {
+  const presentDays = 20;
+  const absentDays = 5;
+  const totalWorkingDays = 25;
   const navigate = useNavigate();
   const [count, setCount] = useState();
 
@@ -15,6 +20,7 @@ const AdminDashboard = () => {
   const getCount = async () => {
     try {
       const response = await axios.get(
+        // "http://localhost:5000/api/dash-count"
         "http://192.168.5.85:5000/api/dash-count"
       );
       setCount(response.data);
@@ -52,8 +58,28 @@ const AdminDashboard = () => {
                 </div>
               </div>
             </div>
-            <div>
-              <Charts />
+            <div className="graph-dashboard">
+              <DropDown />
+              <div className="select-date">
+                <p className="date-title">Select Date</p>
+                <input type="date" />
+              </div>
+              <button type="button" className="fetch-btn ms-3">
+                Fetch Graph
+              </button>
+            </div>
+            <div className="chart-main-div">
+              <Charts
+                presentDays={presentDays}
+                absentDays={absentDays}
+                totalWorkingDays={totalWorkingDays}
+              />
+
+              <PieChart
+                presentDays={presentDays}
+                absentDays={absentDays}
+                workingDays={totalWorkingDays}
+              />
             </div>
           </div>
         </div>

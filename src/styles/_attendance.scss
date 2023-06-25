@@ -25,22 +25,32 @@
   .show-search-main {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid black;
+    .show-entries{
+      display: flex;
+    align-items: center;
+    margin-left: 15px;
+    }
     .input-number {
       height: 30px;
       width: 60px;
       margin: 5px;
     }
+    .search-main{
+      display: flex;
+      align-items: center;
+    }
     .input-search {
       margin: 5px 5px 5px 5px;
-      width: 100px;
+      width: 50%;
     }
   }
   .table-main-div {
-    height: calc(100% - 83px);
+    height: calc(100% - 145px);
     overflow: auto;
     padding: 0px 15px;
     .table {
-      border: 1px solid black;
+      // border: 1px solid black;
       border-radius: 5px;
       .table-head {
         position: sticky;
@@ -48,5 +58,10 @@
         background: white;
       }
     }
+  }
+  .pagination-main{
+    display: flex;
+    justify-content: end;
+    padding: 15px;
   }
 }

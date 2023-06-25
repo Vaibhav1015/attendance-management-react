@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { object } from "yup";
+// import { useForm } from "react-hook-form";
+// import { object } from "yup";
 
 const AddAttendance = ({
   id,
@@ -26,7 +26,10 @@ const AddAttendance = ({
 
   useEffect(() => {
     const fetchAttendanceData = async () => {
-      const response = await fetch("http://192.168.5.85:5000/api/getall");
+      const url = "http://192.168.5.85:5000/api/getall";
+      // "http://localhost:5000/api/getall"
+
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Something Went wrong ");
       }
@@ -52,7 +55,9 @@ const AddAttendance = ({
     e.preventDefault();
 
     try {
-      fetch("http://192.168.5.85:5000/api/add-attendance", {
+      const postUrl = "http://localhost:5000/api/add-attendance";
+      // "http://192.168.5.85:5000/api/add-attendance"
+      fetch(postUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -10,3 +10,26 @@
     cursor: pointer;
   }
 }
+
+.graph-dashboard{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  .select-date{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 25px;
+    .date-title{
+      margin-right: 10px;
+    font-weight: bold;
+    }
+  }
+}
+
+.chart-main-div{
+  display: flex;
+  .pie-graph-div{
+    height: 600px;
+    width: 600px;
+  }
+}
