@@ -5,13 +5,14 @@ import Header from "../../components/Header";
 import Charts from "../../components/Charts";
 import DropDown from "../../components/DropDown";
 import PieChart from "../../components/PieChart";
+import { error } from "jquery";
 
 const AdminDashboard = () => {
-  const presentDays = 20;
-  const absentDays = 5;
-  const totalWorkingDays = 25;
+  const [absentData, setAbsentData] = useState([]);
   const navigate = useNavigate();
   const [count, setCount] = useState();
+
+  const [userData, setUserData] = useState("");
 
   useEffect(() => {
     getCount();
@@ -28,6 +29,36 @@ const AdminDashboard = () => {
       console.error(error);
     }
   };
+
+  let defaultDate = new Date();
+  defaultDate.setDate(defaultDate.getDate() + 3);
+  const [date, setDate] = useState(defaultDate);
+  const onSetDate = (event) => {
+    event.preventDefault();
+    setDate(new Date(event.target.value));
+  };
+
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+
+  const handleCallback = (userData) => {
+    setUserData(userData);
+  };
+  const fetchData = async () => {
+    try {
+      if (userData.length !== 0) {
+        const attendanceGraphUrl = `http://192.168.5.85:5000/api/attendance/user?name=${userData}&year=${year}&month=${month}`;
+        const data = await fetch(attendanceGraphUrl);
+        const result = await data.json();
+        setAbsentData(result);
+      } else {
+        return new error("User Data is Empty");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       {/* <Header /> */}
@@ -59,28 +90,35 @@ const AdminDashboard = () => {
               </div>
             </div>
             <div className="graph-dashboard">
-              <DropDown />
+              <DropDown handleCallback={handleCallback} />
               <div className="select-date">
                 <p className="date-title">Select Date</p>
-                <input type="date" />
+
+                <input type="month" onChange={onSetDate} />
               </div>
-              <button type="button" className="fetch-btn ms-3">
+              <button
+                type="button"
+                className="fetch-btn ms-3"
+                onClick={fetchData}
+              >
                 Fetch Graph
               </button>
             </div>
-            <div className="chart-main-div">
-              <Charts
-                presentDays={presentDays}
-                absentDays={absentDays}
-                totalWorkingDays={totalWorkingDays}
-              />
+            {absentData.length !== 0 && (
+              <div className="chart-main-div">
+                <Charts
+                  presentDays={absentData.presentDays}
+                  absentDays={absentData.absentDays}
+                  totalWorkingDays={absentData.totalWorkingDays}
+                />
 
-              <PieChart
-                presentDays={presentDays}
-                absentDays={absentDays}
-                workingDays={totalWorkingDays}
-              />
-            </div>
+                <PieChart
+                  presentDays={absentData.presentDays}
+                  absentDays={absentData.absentDays}
+                  workingDays={absentData.totalWorkingDays}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

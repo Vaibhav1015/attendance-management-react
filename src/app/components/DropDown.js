@@ -1,33 +1,42 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
+const DropDown = ({ handleCallback }) => {
+  const [userList, setUserList] = useState([]);
+  const [optionState, setOptionState] = useState("");
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const baseUrl = "http://192.168.5.85:5000/api/getall";
+      const response = await fetch(baseUrl);
+      if (!response.ok) {
+        throw new Error("Something Went wrong ");
+      }
+      const data = await response.json();
+      setUserList(data.list);
+    };
+    fetchUserData();
+  }, []);
 
-const DropDown = () => {
+  const onChangeHandler = (e) => {
+    setOptionState(e.target.value);
+  };
+  useEffect(() => {
+    handleCallback(optionState);
+  }, [optionState]);
+
   return (
-    <div class="dropdown-center">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
+    <div className="user-list-center dropdown-center">
+      <select
+        className="user-list-name form-select"
+        aria-label="Default select example"
+        onChange={(e) => onChangeHandler(e)}
+        value={optionState}
       >
-        Select Teacher
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <a class="dropdown-item" href="#">
-            Teacher 1
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">
-            Teacher 2
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">
-            Teacher 3
-          </a>
-        </li>
-      </ul>
+        <option defaultValue="">Select Teacher Name</option>
+        {userList.map((item) => (
+          <option value={`${item.firstName} ${item.lastName}`} key={item._id}>
+            {item.firstName} {item.lastName}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };

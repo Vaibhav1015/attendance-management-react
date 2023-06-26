@@ -70,11 +70,13 @@ const Header = ({ headerImage }) => {
                 <p className="nav-link ">Holidays</p>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/attendance-list">
-                <p className="nav-link ">Attendance</p>
-              </Link>
-            </li>
+            {roles() && (
+              <li className="nav-item">
+                <Link to="/attendance-list">
+                  <p className="nav-link ">Attendance</p>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
         <ul className="nav user-menu">
