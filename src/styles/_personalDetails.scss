@@ -10,7 +10,9 @@
   .detailsDiv {
     margin: 1rem;
     overflow: auto;
-
+    .detail_adjust {
+      margin-bottom: -45px;
+    }
     .titleDiv {
       color: #6a8299;
       font-weight: 400;

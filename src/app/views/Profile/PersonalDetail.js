@@ -27,7 +27,7 @@ const PersonalDetail = ({ userId, userData, getEmpDetail, setUserData }) => {
 
       <p className="headerText">Profile Details</p>
       <div className="detailsDiv">
-        <div className="container text-left">
+        <div className="container detail_adjust text-left">
           <div className="row my-3">
             <div className="col col-lg-3 ps-0 titleDiv">Address :</div>
             <div className="col ps-0 infoDiv">

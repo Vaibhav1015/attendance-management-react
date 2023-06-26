@@ -31,7 +31,7 @@ const EmployeeDashboard = ({ setHeaderImage }) => {
     }
   }, [params.id]);
 
-  const getEmpDetail = useRef(() => {});
+  const getEmpDetail = useRef(() => { });
 
   useEffect(() => {
     setIsLoading(true);
@@ -170,7 +170,7 @@ const EmployeeDashboard = ({ setHeaderImage }) => {
               <div className="userDetailsDiv card">
                 {showTabs() && (
                   <ul
-                    className="nav nav-underline mb-3 ms-3 gap-5"
+                    className="nav nav-underline mb-3 ms-3 gap-4"
                     id="pills-tab"
                     role="tablist"
                   >
