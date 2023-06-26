@@ -6,7 +6,7 @@ const PersonalDetail = ({ userId, userData, getEmpDetail, setUserData }) => {
   return (
     <div className="container personalDetailsDiv">
       <button
-        className="btn btn-primary rounded-0 px-4"
+        className="btn btn-primary rounded-0 px-4 mt-3"
         data-bs-toggle="modal"
         data-bs-target="#personalDetailModalForm"
       >

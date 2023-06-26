@@ -11,25 +11,37 @@
   }
 }
 
-.graph-dashboard{
+.graph-dashboard {
   display: flex;
   align-items: center;
   padding: 20px;
-  .select-date{
+  .select-date {
     display: flex;
     justify-content: space-between;
     margin-left: 25px;
-    .date-title{
+    .date-title {
       margin-right: 10px;
-    font-weight: bold;
+      font-weight: bold;
     }
+  }
+  .fetch-btn {
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: black;
+    background: #f2f2f2;
+  }
+  .dashboard-date {
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: black;
+    background: #f2f2f2;
+  }
+  .dashboard-date:focus-visible {
+    border-width: 1px !important;
   }
 }
 
-.chart-main-div{
-  display: flex;
-  .pie-graph-div{
-    height: 600px;
-    width: 600px;
-  }
+.dashboard-cards {
+  background-color: #f2f2f2;
+  cursor: pointer;
 }

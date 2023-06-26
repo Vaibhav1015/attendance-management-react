@@ -43,7 +43,7 @@ const Employee = () => {
       <div className="main-wrapper">
         <div className="head-link-set">
           <div className="employee_count">
-            Employees : {employee && employee.total ? employee.total : 0}
+            Teachers : {employee && employee.total ? employee.total : 0}
           </div>
           <button
             className="add-employee btn btn-primary px-4"
@@ -51,7 +51,7 @@ const Employee = () => {
             data-bs-target="#exampleModal"
           >
             <i className="employee-icon bi bi-person-add"></i>
-            Add Employee
+            Add Teacher
           </button>
 
           <div>
@@ -61,7 +61,7 @@ const Employee = () => {
               className="form-select form-select-sm"
               aria-label=".form-select-sm example"
             >
-              <option value={""}>All Employee</option>
+              <option value={""}>All Teacher</option>
               {jobs.map((item, index) => {
                 return (
                   <option key={index} value={item}>

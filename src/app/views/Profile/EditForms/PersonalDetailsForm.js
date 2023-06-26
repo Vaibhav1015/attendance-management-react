@@ -215,7 +215,7 @@ const PersonalDetailsForm = ({
                   />
                   <div className="edit-detail-footer modal-footer">
                     <button className="btn btn-primary" type="submit">
-                      Add Employee
+                      Add Teacher
                     </button>
                     <button
                       id="editCloseBtn"

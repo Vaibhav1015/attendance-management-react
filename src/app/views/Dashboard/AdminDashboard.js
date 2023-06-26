@@ -66,24 +66,24 @@ const AdminDashboard = () => {
         <div className="container-fluid">
           <div className="row align-items-center">
             <div className="col">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">Employees</h5>
+              <div className="card" onClick={() => navigate("/employee")}>
+                <div className="dashboard-cards card-body">
+                  <h5 className="card-title">Teachers</h5>
                   <p className="card-text">{count && count.userCount}</p>
                 </div>
               </div>
             </div>
             <div className="col">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">Projects</h5>
+              <div className="card" onClick={() => navigate("/project")}>
+                <div className="dashboard-cards card-body">
+                  <h5 className="card-title">Subjects</h5>
                   <p className="card-text">{count && count.projectCount}</p>
                 </div>
               </div>
             </div>
             <div className="col">
               <div className="card" onClick={() => navigate("/leave-list")}>
-                <div className="card-body">
+                <div className="dashboard-cards card-body">
                   <h5 className="card-title">Leaves</h5>
                   <p className="card-text">{count && count.leaveCount}</p>
                 </div>
@@ -94,7 +94,11 @@ const AdminDashboard = () => {
               <div className="select-date">
                 <p className="date-title">Select Date</p>
 
-                <input type="month" onChange={onSetDate} />
+                <input
+                  className="dashboard-date"
+                  type="month"
+                  onChange={onSetDate}
+                />
               </div>
               <button
                 type="button"

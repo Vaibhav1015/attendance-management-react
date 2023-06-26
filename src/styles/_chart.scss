@@ -1,4 +1,21 @@
-.canvas-graph-div{
-    height: 600px;
-    width: 600px;
+.chart-main-div {
+  display: flex;
+  justify-content: space-evenly;
+  .pie-graph-div {
+    box-shadow: 2px 2px 2px 2px whitesmoke;
+    .pie-canvas {
+      height: 300px !important;
+      width: 400px !important;
+      padding: 15px;
+    }
+  }
+  .canvas-graph-div {
+    box-shadow: 2px 2px 2px 2px whitesmoke;
+    .canvas-graph {
+      height: 250px !important;
+      width: 400px !important;
+      padding: 15px;
+    }
+    // flex: 1;
+  }
 }

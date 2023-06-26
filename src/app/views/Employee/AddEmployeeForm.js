@@ -55,7 +55,7 @@ const AddEmployeeForm = ({
         <div className="modal-content ">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="exampleModalLabel">
-              Add Employee
+              Add Teacher
             </h1>
           </div>
           <div className="addEmployee-form modal-body">
@@ -236,7 +236,7 @@ const AddEmployeeForm = ({
                 </div>
                 <div className="employee-footer modal-footer">
                   <button className="btn btn-primary" type="submit">
-                    Add Employee
+                    Add Teacher
                   </button>
                   <button
                     type="button"

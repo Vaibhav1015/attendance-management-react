@@ -9,7 +9,7 @@ const EmployeeList = ({ employee, getEmp }) => {
   return (
     <div className="main-card">
       <div className="table-heading">
-        <h2>Employee List</h2>
+        <h2>Teacher List</h2>
       </div>
       <div className="table-responsive">
         <table className="table">

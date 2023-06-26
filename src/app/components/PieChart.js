@@ -15,7 +15,7 @@ const PieChart = ({ presentDays, absentDays, workingDays }) => {
 
   return (
     <div className="pie-graph-div">
-      <Pie data={data} />
+      <Pie className="pie-canvas" data={data} />
     </div>
   );
 };

@@ -55,7 +55,7 @@ const AddAttendance = ({
     e.preventDefault();
 
     try {
-      const postUrl = "http://localhost:5000/api/add-attendance";
+      const postUrl = "http://192.168.5.85:5000/api/add-attendance";
       // "http://192.168.5.85:5000/api/add-attendance"
       fetch(postUrl, {
         method: "POST",
@@ -168,7 +168,7 @@ const AddAttendance = ({
                 </div>
                 <div className="attendance-footer">
                   <button
-                    className="btn btn-success"
+                    className="add-button btn btn-success"
                     type="submit"
                     onClick={addData}
                     data-bs-dismiss="modal"
@@ -177,7 +177,7 @@ const AddAttendance = ({
                   </button>
                   <button
                     type="button"
-                    className="btn btn-danger"
+                    className="close-button btn btn-danger"
                     data-bs-dismiss="modal"
                   >
                     Close

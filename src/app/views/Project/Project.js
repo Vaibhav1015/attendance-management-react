@@ -61,9 +61,9 @@ const Project = () => {
         <div className="projects">
           <div className="main-card">
             <div className="project-buttons">
-              <div className="project-count">Project : {project.length}</div>
+              <div className="project-count">Subjects : {project.length}</div>
               <button
-                className="add-project btn btn-primary px-4 "
+                className="add-project btn btn-primary px-3 "
                 data-bs-toggle="modal"
                 data-bs-target="#projectModal"
                 onClick={() => {
@@ -71,7 +71,7 @@ const Project = () => {
                 }}
               >
                 <i className="add-icon bi bi-file-earmark-plus"></i>
-                Add Project
+                Add Subject
               </button>
             </div>
 
@@ -92,7 +92,7 @@ const Project = () => {
             {!isLoading && project !== undefined && project.length !== 0 && (
               <div className="table-main">
                 <div className="table-heading">
-                  <h2>Project List</h2>
+                  <h2>Subject List</h2>
                 </div>
                 <div className="table-responsive">
                   {project.length !== 0 && (
@@ -100,11 +100,11 @@ const Project = () => {
                       <table className="table">
                         <thead className="thead">
                           <tr>
-                            <th scope="col">Project Name</th>
+                            <th scope="col">Subject Name</th>
                             <th scope="col">Status</th>
                             <th scope="col">Start Date</th>
                             <th scope="col">End Date</th>
-                            <th scope="col">Employee</th>
+                            <th scope="col">Teacher</th>
                             <th scope="col">Actions</th>
                           </tr>
                         </thead>

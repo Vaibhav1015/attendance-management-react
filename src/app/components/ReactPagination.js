@@ -31,7 +31,7 @@ const ReactPagination = ({
         activeClass="activePageClass"
       />
       <div>
-        Employees Per Page :
+        Teacher Per Page :
         <select
           value={itemsPerPage}
           onChange={onChangeCount}

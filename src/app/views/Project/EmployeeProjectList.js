@@ -68,22 +68,22 @@ const EmployeeProjectList = ({ userId, tabId }) => {
           <div className="main-card">
             <div className="project-buttons">
               <div className="project-count">
-                Project :{employeeProject.length}
+                Subjects :{employeeProject.length}
               </div>
             </div>
 
             <div className="table-heading">
-              <h2>Project List</h2>
+              <h2>Subject List</h2>
             </div>
             <div className="table-responsive">
               <table className="table">
                 <thead className="thead">
                   <tr>
-                    <th scope="col">Project Name</th>
+                    <th scope="col">Subject Name</th>
                     <th scope="col">Status</th>
                     <th scope="col">Start Date</th>
                     <th scope="col">End Date</th>
-                    <th scope="col">Employee</th>
+                    <th scope="col">Teacher</th>
                   </tr>
                 </thead>
                 <tbody>

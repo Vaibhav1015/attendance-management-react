@@ -13,16 +13,8 @@ const Charts = ({ presentDays, absentDays, totalWorkingDays }) => {
           {
             label: "Teacher Attendance",
             data: [presentDays, absentDays],
-            backgroundColor: [
-              "rgba(75, 192, 192, 0.6)", // Green for Present
-              "rgba(255, 99, 132, 0.6)", // Red for Absent
-              "rgba(54, 162, 235, 0.6)", // Blue for Total Working Days
-            ],
-            borderColor: [
-              "rgba(75, 192, 192, 1)",
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-            ],
+            backgroundColor: ["#36A2EB", "#FF6384", "#FFCE56"],
+            borderColor: ["#36A2EB", "#FF6384", "#FFCE56"],
             borderWidth: 1,
           },
         ],
@@ -44,7 +36,7 @@ const Charts = ({ presentDays, absentDays, totalWorkingDays }) => {
 
   return (
     <div className="canvas-graph-div">
-      <canvas ref={chartRef} />
+      <canvas className="canvas-graph" ref={chartRef} />
     </div>
   );
 };

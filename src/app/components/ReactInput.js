@@ -38,7 +38,7 @@ const ReactInput = ({
           onClick={onClick}
           value={value}
           rows={rows}
-          autocomplete="new-password"
+          autoComplete="new-password"
         />
 
         {icon && <p className="icon">{icon}</p>}

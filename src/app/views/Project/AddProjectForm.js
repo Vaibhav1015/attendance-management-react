@@ -112,7 +112,7 @@ const AddProjectForm = ({
         <div className="modal-content ">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="projectModal">
-              {!projectObj ? "Add Projects" : "Edit Project"}
+              {!projectObj ? "Add Subjects" : "Edit Subjects"}
             </h1>
           </div>
           <div className="add-project-form  modal-body">
@@ -125,8 +125,8 @@ const AddProjectForm = ({
                         required: "projectName cannot be empty",
                       }),
                     }}
-                    label="Project Name"
-                    placeholder="Project Name"
+                    label="Subject Name"
+                    placeholder="Subject Name"
                     asterisk="true"
                     error={
                       errors.projectName && (
@@ -137,7 +137,7 @@ const AddProjectForm = ({
                     inputClassName="inputs"
                   />
 
-                  <label>Employee List</label>
+                  <label>Teacher List</label>
                   {!projectObj && (
                     <Select
                       isMulti
@@ -232,7 +232,7 @@ const AddProjectForm = ({
                 </div>
                 <div className="modal-footer">
                   <button className="btn btn-primary" type="submit">
-                    Add Project
+                    Add Subject
                   </button>
                   <button
                     type="button"
