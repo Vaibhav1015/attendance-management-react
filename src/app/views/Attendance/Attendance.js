@@ -1,6 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import ReactPagination from "../../components/ReactPagination";
+
 import AddAttendance from "./AddAttendance";
+import moment from "moment/moment";
+import { useReactToPrint } from "react-to-print";
 
 const Attendance = () => {
   const [attendanceList, setAttendanceList] = useState([]);
@@ -21,6 +24,7 @@ const Attendance = () => {
     setAttendanceList(data.list);
     setTotalItemsCount(data.list.length);
   }, [currentPage, itemsPerPage]);
+  const componentPdf = useRef();
 
   useEffect(() => {
     fetchAttendanceData();
@@ -30,6 +34,11 @@ const Attendance = () => {
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const generatePdf = useReactToPrint({
+    content: () => componentPdf.current,
+    documentTitle: "Teacher Data",
+    onAfterPrint: () => alert("Data saved in pdf"),
+  });
   return (
     <>
       <div className="attendance-main">
@@ -38,7 +47,9 @@ const Attendance = () => {
             <h3 className="box-heading">Attendance List</h3>
           </div>
           <div className="attendance-div-btn">
-            <button className="report-btn">Report</button>
+            <button className="report-btn" onClick={generatePdf}>
+              Report
+            </button>
             <button
               className="add-btn"
               data-bs-toggle="modal"
@@ -70,7 +81,7 @@ const Attendance = () => {
             />
           </div>
         </div>
-        <div className="table-main-div">
+        <div className="table-main-div" ref={componentPdf}>
           <table className="table">
             <thead className="table-head">
               <tr>
@@ -84,7 +95,7 @@ const Attendance = () => {
                 <tr key={item._id}>
                   <th scope="row">{item.name}</th>
                   <td>{item.present ? "present" : "Absent"}</td>
-                  <td>{item.date}</td>
+                  <td>{moment(item.date).format("DD-MM-YYYY")}</td>
                 </tr>
               ))}
             </tbody>
