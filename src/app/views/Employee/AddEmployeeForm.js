@@ -220,10 +220,13 @@ const AddEmployeeForm = ({
                       render={({ field }) => (
                         <select {...field} className="controller-dropdown">
                           <option hidden>Select Job Title</option>
-                          <option>Sr Developer</option>
-                          <option>Jr Developer</option>
-                          <option>Tester</option>
-                          <option>Trainee</option>
+                          <option>Physics</option>
+                          <option>Biology</option>
+                          <option>Maths</option>
+                          <option>Chemistry</option>
+                          <option>English</option>
+                          <option>IT</option>
+                          <option>Social science</option>
                         </select>
                       )}
                     />

@@ -7,7 +7,15 @@ import ReactPagination from "../../components/ReactPagination";
 import EmployeeList from "../../components/EmployeeList";
 import { getEmployeePagination } from "../../../middleware/services/employeeService";
 
-const jobs = ["Tester", "Jr Developer", "Sr Developer"];
+const jobs = [
+  "Physics",
+  "Biology",
+  "Chemistry",
+  "English",
+  "Maths",
+  "IT",
+  "Social science",
+];
 
 const Employee = () => {
   const [loading, setLoading] = useState(false);
@@ -58,7 +66,7 @@ const Employee = () => {
             <select
               onChange={onJobChange}
               value={selectedJobTitle}
-              className="form-select form-select-sm"
+              className="teacher-dropdown form-select form-select-sm"
               aria-label=".form-select-sm example"
             >
               <option value={""}>All Teacher</option>

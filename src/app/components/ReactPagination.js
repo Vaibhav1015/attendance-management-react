@@ -30,12 +30,12 @@ const ReactPagination = ({
         onChange={handlePageChange}
         activeClass="activePageClass"
       />
-      <div>
+      <div className="teacher-page-main">
         Teacher Per Page :
         <select
           value={itemsPerPage}
           onChange={onChangeCount}
-          className="form-select w-25"
+          className="per-page-select form-select"
           aria-label="Default select example"
         >
           <option value="5">5</option>

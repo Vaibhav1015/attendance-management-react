@@ -11,9 +11,9 @@
       margin: 5px;
       .report-btn {
         margin-right: 5px;
-        background-color: rgb(253, 146, 146);
+        background-color: rgb(255 62 62);
         color: white;
-        border-color: rgb(253, 146, 146);
+        border-color: rgb(255 62 62);
       }
       .add-btn {
         background-color: #0d6efd;
@@ -26,6 +26,13 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid black;
+    .select-item-page {
+      display: flex;
+      padding: 5px;
+    }
+    .select-item-page p {
+      margin: 2px;
+    }
     .show-entries {
       display: flex;
       align-items: center;
@@ -63,5 +70,11 @@
     display: flex;
     justify-content: end;
     padding: 15px;
+  }
+  .pagination {
+    position: relative;
+    justify-content: end;
+    top: 20px;
+    right: 10px;
   }
 }

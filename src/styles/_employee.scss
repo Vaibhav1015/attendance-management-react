@@ -3,7 +3,7 @@
   padding: 15px;
   background: white;
   .employee_count {
-    background-color: #2f47ba;
+    background-color: #0d6efd;
     color: white;
     display: flex;
     height: 50px;
@@ -36,7 +36,7 @@
     margin: 10px 0px 10px 0px;
     align-items: center;
     .add-employee {
-      background-color: #2f47ba;
+      background-color: #0d6efd;
       color: white;
       display: flex;
       height: 50px;
@@ -48,6 +48,11 @@
         font-size: 22px;
         margin-right: 5px;
       }
+    }
+    .teacher-dropdown {
+      height: 50px;
+      color: white;
+      background-color: #0d6efd;
     }
   }
   .table-heading {
@@ -145,6 +150,18 @@
   display: flex;
   padding: 10px;
   margin: 0;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.teacher-page-main {
+  display: flex;
+  align-items: center;
+  .per-page-select {
+    margin-left: 5px;
+    width: 80px;
+  }
 }
 
 .paginationMainHide {
