@@ -1,25 +1,31 @@
-import { right } from "@popperjs/core";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import ReactPagination from "../../components/ReactPagination";
 import AddAttendance from "./AddAttendance";
 
 const Attendance = () => {
   const [attendanceList, setAttendanceList] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalItemsCount, setTotalItemsCount] = useState(0);
+  const fetchAttendanceData = useCallback(async () => {
+    // e.preventDefault();
+    const response = await fetch(
+      `http://192.168.5.85:5000/api/attendance-list?pageSize=${itemsPerPage}&page=${currentPage}`
+    );
+    if (!response.ok) {
+      throw new Error("Something Went wrong ");
+    }
+    const data = await response.json();
+    console.log(data.list.length);
+    setAttendanceList(data.list);
+    setTotalItemsCount(data.list.length);
+  }, [currentPage, itemsPerPage]);
 
   useEffect(() => {
-    const fetchAttendanceData = async () => {
-      const response = await fetch(
-        "http://192.168.5.85:5000/api/attendance-list"
-      );
-      if (!response.ok) {
-        throw new Error("Something Went wrong ");
-      }
-      const data = await response.json();
-      console.log(data.list);
-      setAttendanceList(data.list);
-    };
     fetchAttendanceData();
-  }, []);
+  }, [fetchAttendanceData]);
+
   const filteredData = attendanceList.filter((item) =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -43,11 +49,16 @@ const Attendance = () => {
           </div>
         </div>
         <div className="show-search-main">
-          <div>
-            Show
-            <input min="1" max="10" className="input-number" type="number" />
-            entries
-          </div>
+          {filteredData?.length > 0 && (
+            <ReactPagination
+              getEmp={fetchAttendanceData}
+              currentPage={currentPage}
+              itemsPerPage={itemsPerPage}
+              totalItemsCount={totalItemsCount}
+              setCurrentPage={setCurrentPage}
+              setItemsPerPage={setItemsPerPage}
+            />
+          )}
           <div className="search-main">
             <p className="fw-bold">Search</p>
             <input
