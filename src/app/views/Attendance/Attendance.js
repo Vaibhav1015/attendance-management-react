@@ -9,9 +9,12 @@ const Attendance = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [httpError, setHttpError] = useState();
   const componentPdf = useRef();
 
   const fetchAttendanceData = useCallback(async () => {
+    setIsLoading(true);
     const response = await fetch(
       `http://192.168.5.85:5000/api/attendance-list`
     );
@@ -20,10 +23,14 @@ const Attendance = () => {
     }
     const data = await response.json();
     setAttendanceList(data.list);
+    setIsLoading(false);
   }, []);
 
   useEffect(() => {
-    fetchAttendanceData();
+    fetchAttendanceData().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
   }, [fetchAttendanceData]);
 
   const generatePdf = useReactToPrint({
@@ -102,8 +109,14 @@ const Attendance = () => {
                 <th scope="col">Attendance Date</th>
               </tr>
             </thead>
+            {isLoading && <div className="loaderDiv"></div>}
+            {!isLoading && httpError && (
+              <p className="d-flex mt-5 text-danger justify-content-end">
+                {httpError}
+              </p>
+            )}
             <tbody>
-              {searchQuery !== ""
+              {!isLoading && !httpError && searchQuery !== ""
                 ? filteredData.map((item) => (
                     <tr key={item._id}>
                       <th scope="row">{item.name}</th>

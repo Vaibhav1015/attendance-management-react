@@ -13,6 +13,8 @@ const AddAttendance = ({
   const [showForm, setShowForm] = useState(true);
   const [attDate, setAttDate] = useState();
   const [teacherData, setTeacherData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [httpError, setHttpError] = useState();
 
   const onChangeValue = (id, present) => {
     let list = teacherData.map((ele) => {
@@ -26,6 +28,7 @@ const AddAttendance = ({
 
   useEffect(() => {
     const fetchAttendanceData = async () => {
+      setIsLoading(true);
       const url = "http://192.168.5.85:5000/api/getall";
       // "http://localhost:5000/api/getall"
 
@@ -38,6 +41,7 @@ const AddAttendance = ({
         Object.assign(ele, { present: "false" })
       );
       setTeacherData(list);
+      setIsLoading(false);
     };
     fetchAttendanceData();
   }, []);
@@ -53,7 +57,6 @@ const AddAttendance = ({
 
   const addData = (e) => {
     e.preventDefault();
-
     try {
       const postUrl = "http://192.168.5.85:5000/api/add-attendance";
       // "http://192.168.5.85:5000/api/add-attendance"
@@ -67,7 +70,6 @@ const AddAttendance = ({
     } catch (err) {
       console.error("Error:", err);
     }
-    console.log("postData >>>", postData);
   };
 
   return (
@@ -115,6 +117,7 @@ const AddAttendance = ({
                         </tr>
                       </thead>
                       <tbody>
+                        {isLoading && <div className="loaderDiv"></div>}
                         {teacherData.map((item) => (
                           <tr className="text-center">
                             <th>
@@ -171,7 +174,7 @@ const AddAttendance = ({
                     className="add-button btn btn-success"
                     type="submit"
                     onClick={addData}
-                    data-bs-dismiss="modal"
+                    // data-bs-dismiss="modal"
                   >
                     Add
                   </button>
