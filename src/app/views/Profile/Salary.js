@@ -13,7 +13,9 @@ const Salary = ({ userId, tabId }) => {
     setIsLoading(true);
     try {
       axios
-        .get(`http://192.168.5.85:5000/api/salary-slip/${userId}`)
+        .get(
+          `https://academic-attendance.onrender.com/api/salary-slip/${userId}`
+        )
         .then((res) => {
           setSalaryData(res.data.data);
           setIsLoading(false);
@@ -37,7 +39,9 @@ const Salary = ({ userId, tabId }) => {
     setIsLoading(true);
     try {
       axios
-        .delete(`http://192.168.5.85:5000/api/salary-slip/delete/${id}`)
+        .delete(
+          `https://academic-attendance.onrender.com/api/salary-slip/delete/${id}`
+        )
         .then((res) => {
           if (res.status === 200) {
             getSalarySlipData();

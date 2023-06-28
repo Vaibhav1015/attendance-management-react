@@ -7,6 +7,7 @@ import { Pagination } from "react-bootstrap";
 const Attendance = () => {
   const [attendanceList, setAttendanceList] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [dateSearch, setDateSearch] = useState("");
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +17,7 @@ const Attendance = () => {
   const fetchAttendanceData = useCallback(async () => {
     setIsLoading(true);
     const response = await fetch(
-      `http://192.168.5.85:5000/api/attendance-list`
+      `https://academic-attendance.onrender.com/api/attendance-list`
     );
     if (!response.ok) {
       throw new Error("Something Went wrong ");
@@ -45,6 +46,7 @@ const Attendance = () => {
   const filteredData = attendanceList.filter((item) =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
   const currentItems = attendanceList.slice(indexOfFirstItem, indexOfLastItem);
 
   const totalPages = Math.ceil(attendanceList.length / itemsPerPage);
@@ -57,6 +59,15 @@ const Attendance = () => {
     setItemsPerPage(Number(e.target.value));
     setCurrentPage(1);
   };
+
+  const filterDate = attendanceList.filter((item) =>
+    item.date.includes(dateSearch)
+  );
+
+  const bothSearch = filterDate.filter((item) =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  // console.log(filterDate, "filter date >>>>");
   return (
     <>
       <div className="attendance-main">
@@ -90,14 +101,24 @@ const Attendance = () => {
           </div>
 
           <div className="search-main">
-            <p className="fw-bold">Search</p>
-            <input
-              className="input-search"
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by name"
-            />
+            <div className="d-flex">
+              <p className="me-2  fw-bold">Search by date</p>
+              <input
+                type="date"
+                value={dateSearch}
+                onChangeCapture={(e) => setDateSearch(e.target.value)}
+              ></input>
+            </div>
+            <div className="main-input-div">
+              <p className="fw-bold">Search</p>
+              <input
+                className="input-search"
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search by name"
+              />
+            </div>
           </div>
         </div>
         <div className="table-main-div" ref={componentPdf}>
@@ -116,8 +137,32 @@ const Attendance = () => {
               </p>
             )}
             <tbody>
-              {!isLoading && !httpError && searchQuery !== ""
+              {searchQuery === "" && dateSearch === ""
+                ? currentItems.map((item) => (
+                    <tr key={item._id}>
+                      <th scope="row">{item.name}</th>
+                      <td>{item.present ? "present" : "Absent"}</td>
+                      <td>{moment(item.date).format("DD-MM-YYYY")}</td>
+                    </tr>
+                  ))
+                : searchQuery !== "" && dateSearch === ""
                 ? filteredData.map((item) => (
+                    <tr key={item._id}>
+                      <th scope="row">{item.name}</th>
+                      <td>{item.present ? "present" : "Absent"}</td>
+                      <td>{moment(item.date).format("DD-MM-YYYY")}</td>
+                    </tr>
+                  ))
+                : searchQuery === "" && dateSearch !== ""
+                ? filterDate.map((item) => (
+                    <tr key={item._id}>
+                      <th scope="row">{item.name}</th>
+                      <td>{item.present ? "present" : "Absent"}</td>
+                      <td>{moment(item.date).format("DD-MM-YYYY")}</td>
+                    </tr>
+                  ))
+                : searchQuery !== "" && dateSearch !== ""
+                ? bothSearch.map((item) => (
                     <tr key={item._id}>
                       <th scope="row">{item.name}</th>
                       <td>{item.present ? "present" : "Absent"}</td>

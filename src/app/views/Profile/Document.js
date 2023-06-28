@@ -11,7 +11,7 @@ const Document = ({ userId, tabId }) => {
     try {
       setIsLoading(true);
       axios
-        .get(`http://192.168.5.85:5000/api/document/${userId}`)
+        .get(`https://academic-attendance.onrender.com/api/document/${userId}`)
         .then((response) => {
           setDocumentData(response.data.data);
 
@@ -38,7 +38,9 @@ const Document = ({ userId, tabId }) => {
     try {
       setIsLoading(true);
       axios
-        .delete(`http://192.168.5.85:5000/api/document/delete/${id}`)
+        .delete(
+          `https://academic-attendance.onrender.com/api/document/delete/${id}`
+        )
         .then((res) => {
           if (res.data.success) {
             getDocument();

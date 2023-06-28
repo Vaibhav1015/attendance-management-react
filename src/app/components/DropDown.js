@@ -4,7 +4,7 @@ const DropDown = ({ handleCallback }) => {
   const [optionState, setOptionState] = useState("");
   useEffect(() => {
     const fetchUserData = async () => {
-      const baseUrl = "http://192.168.5.85:5000/api/getall";
+      const baseUrl = "https://academic-attendance.onrender.com/api/getall";
       const response = await fetch(baseUrl);
       if (!response.ok) {
         throw new Error("Something Went wrong ");

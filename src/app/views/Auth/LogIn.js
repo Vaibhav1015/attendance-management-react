@@ -31,7 +31,7 @@ const LogIn = () => {
 
   const onSubmit = async (loginData) => {
     try {
-      const baseURL = "http://192.168.5.85:5000/api/login";
+      const baseURL = "https://academic-attendance.onrender.com/api/login";
       // "http://localhost:5000/api/login"
 
       const response = await axios.post(baseURL, {

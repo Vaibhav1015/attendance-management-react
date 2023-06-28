@@ -29,7 +29,7 @@ const AddAttendance = ({
   useEffect(() => {
     const fetchAttendanceData = async () => {
       setIsLoading(true);
-      const url = "http://192.168.5.85:5000/api/getall";
+      const url = "https://academic-attendance.onrender.com/api/getall";
       // "http://localhost:5000/api/getall"
 
       const response = await fetch(url);
@@ -58,8 +58,9 @@ const AddAttendance = ({
   const addData = (e) => {
     e.preventDefault();
     try {
-      const postUrl = "http://192.168.5.85:5000/api/add-attendance";
-      // "http://192.168.5.85:5000/api/add-attendance"
+      const postUrl =
+        "https://academic-attendance.onrender.com/api/add-attendance";
+      // "https://academic-attendance.onrender.com/api/add-attendance"
       fetch(postUrl, {
         method: "POST",
         headers: {
@@ -174,7 +175,7 @@ const AddAttendance = ({
                     className="add-button btn btn-success"
                     type="submit"
                     onClick={addData}
-                    // data-bs-dismiss="modal"
+                    data-bs-dismiss="modal"
                   >
                     Add
                   </button>

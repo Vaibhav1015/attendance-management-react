@@ -9,7 +9,7 @@ const DocumentForm = ({
   userId,
   updatedDocData,
 }) => {
-  const baseUrl = "http://192.168.5.85:5000/api/adddocument";
+  const baseUrl = "https://academic-attendance.onrender.com/api/adddocument";
   const {
     register,
     handleSubmit,

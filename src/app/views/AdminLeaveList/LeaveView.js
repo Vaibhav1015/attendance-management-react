@@ -21,10 +21,15 @@ const LeaveView = ({
   const acceptRejectLeave = async (id, status) => {
     try {
       await axios
-        .put(`http://192.168.5.85:5000/api/update-leave/${getUser()._id}`, {
-          _id: id,
-          status: status,
-        })
+        .put(
+          `https://academic-attendance.onrender.com/api/update-leave/${
+            getUser()._id
+          }`,
+          {
+            _id: id,
+            status: status,
+          }
+        )
         .then((res) => {
           if (res.data.success) {
             getLeaveList();

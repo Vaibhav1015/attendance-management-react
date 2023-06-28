@@ -32,52 +32,54 @@ const Header = ({ headerImage }) => {
   return (
     <nav className="navbar navbar-expand-lg  bg-dark" data-bs-theme="dark">
       <div className="container-fluid">
-        <div className="header-left">
-          <p className="logo logo-small">
-            <img
-              src="https://media.glassdoor.com/sqll/1827485/ewebcore-squarelogo-1563170768299.png"
-              alt="Logo"
-              width="30"
-              height="30"
-            />
-          </p>
-        </div>
+        <div className="d-flex align-items-center">
+          <div className="header-left me-2">
+            <p className="logo logo-small">
+              <img
+                src="https://media.glassdoor.com/sqll/1827485/ewebcore-squarelogo-1563170768299.png"
+                alt="Logo"
+                width="30"
+                height="30"
+              />
+            </p>
+          </div>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link to="/dashboard">
-                <p className="nav-link active" aria-current="page">
-                  Dashboard
-                </p>
-              </Link>
-            </li>
-            {roles() && (
+          <div className="navbar d-flex" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row gap-2">
               <li className="nav-item">
-                <Link to="/employee">
-                  <p className="nav-link">Teachers</p>
+                <Link to="/dashboard">
+                  <p className="nav-link active" aria-current="page">
+                    Dashboard
+                  </p>
                 </Link>
               </li>
-            )}
+              {roles() && (
+                <li className="nav-item">
+                  <Link to="/employee">
+                    <p className="nav-link">Teachers</p>
+                  </Link>
+                </li>
+              )}
 
-            <li className="nav-item">
-              <Link to="/project">
-                <p className="nav-link ">Subjects</p>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/holiday-list">
-                <p className="nav-link ">Holidays</p>
-              </Link>
-            </li>
-            {roles() && (
               <li className="nav-item">
-                <Link to="/attendance-list">
-                  <p className="nav-link ">Attendance</p>
+                <Link to="/project">
+                  <p className="nav-link ">Subjects</p>
                 </Link>
               </li>
-            )}
-          </ul>
+              <li className="nav-item">
+                <Link to="/holiday-list">
+                  <p className="nav-link ">Holidays</p>
+                </Link>
+              </li>
+              {roles() && (
+                <li className="nav-item">
+                  <Link to="/attendance-list">
+                    <p className="nav-link ">Attendance</p>
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
         </div>
         <ul className="nav user-menu">
           <li className="nav-item dropdown has-arrow main-drop">

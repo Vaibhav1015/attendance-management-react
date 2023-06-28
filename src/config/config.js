@@ -1,5 +1,5 @@
 const config = {
-  baseUrl: "http://192.168.5.85:5000/api",
+  baseUrl: "https://academic-attendance.onrender.com/api",
   //Holiday
   getHolidayUrl: "/holiday",
   postHolidayUrl: "/addholiday",

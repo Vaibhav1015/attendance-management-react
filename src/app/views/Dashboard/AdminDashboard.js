@@ -22,7 +22,7 @@ const AdminDashboard = () => {
     try {
       const response = await axios.get(
         // "http://localhost:5000/api/dash-count"
-        "http://192.168.5.85:5000/api/dash-count"
+        "https://academic-attendance.onrender.com/api/dash-count"
       );
       setCount(response.data);
     } catch (error) {
@@ -47,7 +47,7 @@ const AdminDashboard = () => {
   const fetchData = async () => {
     try {
       if (userData.length !== 0) {
-        const attendanceGraphUrl = `http://192.168.5.85:5000/api/attendance/user?name=${userData}&year=${year}&month=${month}`;
+        const attendanceGraphUrl = `https://academic-attendance.onrender.com/api/attendance/user?name=${userData}&year=${year}&month=${month}`;
         const data = await fetch(attendanceGraphUrl);
         const result = await data.json();
         setAbsentData(result);

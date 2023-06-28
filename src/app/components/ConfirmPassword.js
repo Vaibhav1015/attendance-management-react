@@ -17,7 +17,7 @@ const ConfirmPassword = ({ id }) => {
   const onSubmit = (data) => {
     try {
       axios
-        .post("http://192.168.5.85:5000/api/update_password", {
+        .post("https://academic-attendance.onrender.com/api/update_password", {
           id: id,
           password: data.confirmPwd,
         })

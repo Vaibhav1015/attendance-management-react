@@ -29,7 +29,9 @@ const EmployeeProjectList = ({ userId, tabId }) => {
       try {
         setIsLoading(true);
         axios
-          .get(`http://192.168.5.85:5000/api/projects/user/${userId}`)
+          .get(
+            `https://academic-attendance.onrender.com/api/projects/user/${userId}`
+          )
           .then((res) => {
             if (res.data.success) {
               setEmployeeProject(res.data.project);
@@ -46,9 +48,11 @@ const EmployeeProjectList = ({ userId, tabId }) => {
 
   const getAllEmp = useCallback(() => {
     try {
-      axios.get("http://192.168.5.85:5000/api/getall").then((response) => {
-        setGetAllEmpp(response.data.list);
-      });
+      axios
+        .get("https://academic-attendance.onrender.com/api/getall")
+        .then((response) => {
+          setGetAllEmpp(response.data.list);
+        });
     } catch (error) {
       console.error(error);
     }

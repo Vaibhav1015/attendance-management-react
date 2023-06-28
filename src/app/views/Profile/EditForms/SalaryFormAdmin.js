@@ -22,7 +22,7 @@ const SalaryFormAdmin = ({
     try {
       axios
         .post(
-          "http://192.168.5.85:5000/api/add-salary-slip",
+          "https://academic-attendance.onrender.com/api/add-salary-slip",
           {
             userId: userId,
             date: data.date,
