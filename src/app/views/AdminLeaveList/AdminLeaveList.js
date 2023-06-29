@@ -1,7 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Header from "../../components/Header";
-import axios from "axios";
-import { getUser } from "../../../constants/constantFunction";
 import LeaveView from "./LeaveView";
 import { getAllLeave } from "../../../middleware/services/leaveService";
 

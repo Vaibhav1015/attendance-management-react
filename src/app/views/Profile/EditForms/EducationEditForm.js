@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { getUser } from "../../../../constants/constantFunction";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import ReactInput from "../../../components/ReactInput";
 import { editEducation } from "../../../../middleware/services/educationService";

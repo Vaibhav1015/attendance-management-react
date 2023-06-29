@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header";
 import Charts from "../../components/Charts";
 import DropDown from "../../components/DropDown";
 import PieChart from "../../components/PieChart";
