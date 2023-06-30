@@ -19,6 +19,8 @@ const LogIn = () => {
   useEffect(() => {
     if (token) {
       navigate("/dashboard");
+    } else if (!token) {
+      navigate("/login");
     }
   }, [token, navigate]);
 

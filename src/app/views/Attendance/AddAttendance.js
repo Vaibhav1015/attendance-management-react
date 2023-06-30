@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-// import { useForm } from "react-hook-form";
-// import { object } from "yup";
 
 const AddAttendance = ({
   id,
@@ -14,7 +12,6 @@ const AddAttendance = ({
   const [attDate, setAttDate] = useState();
   const [teacherData, setTeacherData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [httpError, setHttpError] = useState();
 
   const onChangeValue = (id, present) => {
     let list = teacherData.map((ele) => {

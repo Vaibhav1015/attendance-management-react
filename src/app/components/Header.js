@@ -18,7 +18,7 @@ const Header = ({ headerImage }) => {
   };
 
   useEffect(() => {
-    getEmployeeByUserId(currUser._id).then((res) => {
+    getEmployeeByUserId(currUser?._id).then((res) => {
       if (res.data.imageData === null) {
         setHeadImage(
           "https://templates.joomla-monster.com/joomla30/jm-news-portal/components/com_djclassifieds/assets/images/default_profile.png"
@@ -27,7 +27,7 @@ const Header = ({ headerImage }) => {
         setHeadImage(res.data.imageData.image);
       }
     });
-  }, [currUser._id]);
+  }, [currUser?._id]);
 
   return (
     <nav className="navbar navbar-expand-lg  bg-dark" data-bs-theme="dark">
@@ -97,7 +97,7 @@ const Header = ({ headerImage }) => {
                 className="rounded-circle me-2"
               />
               <span>
-                {currUser.firstName} {currUser.lastName}
+                {currUser?.firstName} {currUser?.lastName}
               </span>
             </div>
             <ul className="dropdown-menu">
@@ -116,7 +116,7 @@ const Header = ({ headerImage }) => {
                 <p
                   className="dropdown-item"
                   data-bs-toggle="modal"
-                  data-bs-target={`#${currUser._id}`}
+                  data-bs-target={`#${currUser?._id}`}
                   role="button"
                 >
                   Change Password
@@ -136,7 +136,7 @@ const Header = ({ headerImage }) => {
         </ul>
         <div
           className="modal fade"
-          id={currUser._id}
+          id={currUser?._id}
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
@@ -156,7 +156,7 @@ const Header = ({ headerImage }) => {
               </div>
               <div className="modal-body">
                 <ConfirmPassword
-                  id={currUser._id}
+                  id={currUser?._id}
                   logOutMethod={handleLogout}
                 />
               </div>

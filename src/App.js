@@ -12,7 +12,9 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== "/login" && <Header headerImage={headerImage} />}
+      {location.pathname !== "/login" && location.pathname !== "/" && (
+        <Header headerImage={headerImage} />
+      )}
       <AppRouter roles={() => roles()} setHeaderImage={setHeaderImage} />
     </div>
   );
