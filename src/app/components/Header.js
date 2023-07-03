@@ -3,6 +3,7 @@ import { getUser, roles } from "../../constants/constantFunction";
 import ConfirmPassword from "./ConfirmPassword";
 import { useEffect, useState } from "react";
 import { getEmployeeByUserId } from "../../middleware/services/employeeService";
+import logo from "../../../src/images/mainLogo.jpeg";
 
 const Header = ({ headerImage }) => {
   const navigate = useNavigate();
@@ -35,12 +36,7 @@ const Header = ({ headerImage }) => {
         <div className="d-flex align-items-center">
           <div className="header-left me-2">
             <p className="logo logo-small">
-              <img
-                src="https://media.glassdoor.com/sqll/1827485/ewebcore-squarelogo-1563170768299.png"
-                alt="Logo"
-                width="30"
-                height="30"
-              />
+              <img src={logo} alt="Logo" width="30" height="30" />
             </p>
           </div>
 

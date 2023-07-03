@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ReactInput from "../../components/ReactInput";
 import { useForm } from "react-hook-form";
 import React, { useEffect, useState } from "react";
-
+import logo from "../../../../src/images/mainLogo.jpeg";
 const LogIn = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
@@ -66,11 +66,7 @@ const LogIn = () => {
   return (
     <div className=" login-main">
       <form onSubmit={handleSubmit(onSubmit)} className="login-form">
-        <img
-          className="login-logo"
-          src="https://github.com/Vaibhav1015/attendance-management-react/blob/main/public/images/mainLogo.jpeg"
-          alt=""
-        />
+        <img className="login-logo" src={logo} />
         <h1 className="text-center">Login</h1>
         {errorMessage && (
           <span className="password-error text-danger">{errorMessage}</span>
