@@ -68,7 +68,7 @@ const LogIn = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="login-form">
         <img
           className="login-logo"
-          src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png"
+          src="https://github.com/Vaibhav1015/attendance-management-react/blob/main/public/images/mainLogo.jpeg"
           alt=""
         />
         <h1 className="text-center">Login</h1>
