@@ -15,13 +15,21 @@ body,
   align-items: center;
   justify-content: center;
   height: 100%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(45, 108, 253, 1) 100%
+  );
   .login-form {
     width: 450px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    // border-radius: 20px;
+    // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     padding: 10px;
     .login-logo {
-      width: 100%;
+      width: 100px;
+      height: 100px;
+      display: block;
+      margin: auto;
     }
     .password-error {
       background-color: rgba(241, 111, 109, 0.1);
@@ -33,6 +41,8 @@ body,
     }
     .submit-button {
       margin: 15px 0;
+      width: 100%;
+      background-color: rgb(45, 108, 253);
     }
   }
 }

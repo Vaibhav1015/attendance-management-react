@@ -65,11 +65,11 @@ const LogIn = () => {
 
   return (
     <div className=" login-main">
-      <form onSubmit={handleSubmit(onSubmit)} className="login-form bg-white ">
+      <form onSubmit={handleSubmit(onSubmit)} className="login-form">
         <img
           className="login-logo"
-          src="https://www.ewebcore.net/wp-content/uploads/2018/11/cropped-cropped-logo.png"
-          alt="Logo"
+          src="https://www.freeiconspng.com/thumbs/login-icon/user-login-icon-14.png"
+          alt=""
         />
         <h1 className="text-center">Login</h1>
         {errorMessage && (
@@ -99,8 +99,11 @@ const LogIn = () => {
               }),
             }}
             icon={
-              <span onClick={togglePasswordVisibility}>
-                {passwordShown === "password" ? "S" : "H"}
+              <span
+                onClick={togglePasswordVisibility}
+                style={{ fontSize: "12px" }}
+              >
+                {passwordShown ? "Hide" : "Show"}
               </span>
             }
             label="Password"
@@ -111,7 +114,7 @@ const LogIn = () => {
         </div>
 
         <button
-          className="submit-button btn btn-lg text-light btn-block bg-danger"
+          className="submit-button btn btn-lg text-light btn-block"
           type="submit"
         >
           Login
