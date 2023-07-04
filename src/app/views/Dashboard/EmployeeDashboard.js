@@ -31,7 +31,7 @@ const EmployeeDashboard = ({ setHeaderImage }) => {
     }
   }, [params.id]);
 
-  const getEmpDetail = useRef(() => { });
+  const getEmpDetail = useRef(() => {});
 
   useEffect(() => {
     setIsLoading(true);
@@ -274,7 +274,7 @@ const EmployeeDashboard = ({ setHeaderImage }) => {
                           aria-selected="false"
                           onClick={() => setActiveTab("project-tab")}
                         >
-                          Project
+                          Subjects
                         </button>
                       </li>
                     )}
