@@ -92,7 +92,6 @@ const AdminDashboard = () => {
               <DropDown handleCallback={handleCallback} />
               <div className="select-date">
                 <p className="date-title">Select Date</p>
-
                 <input
                   className="dashboard-date"
                   type="month"

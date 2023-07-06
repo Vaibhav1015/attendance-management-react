@@ -27,7 +27,7 @@ const AdminLeaveList = () => {
       <div className="leaveStatusDiv">
         <div className="modal-header">
           <h1 className="modal-title " id="exampleModalLabel">
-            Employee Leave List
+            Teacher Leave List
           </h1>
         </div>
         <select

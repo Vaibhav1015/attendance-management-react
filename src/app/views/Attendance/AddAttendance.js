@@ -69,7 +69,7 @@ const AddAttendance = ({
       console.error("Error:", err);
     }
   };
-
+  const today = new Date().toISOString().split("T")[0];
   return (
     <div>
       <div
@@ -102,6 +102,8 @@ const AddAttendance = ({
                       type="date"
                       className="dates mb-3"
                       value={attDate}
+                      max={today}
+                      min={today}
                       onChange={(e) => setAttDate(e.target.value)}
                     />
                   </div>
