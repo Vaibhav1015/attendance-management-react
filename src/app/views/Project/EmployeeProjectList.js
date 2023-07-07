@@ -33,7 +33,6 @@ const EmployeeProjectList = ({ userId, tabId }) => {
             `https://academic-attendance.onrender.com/api/projects/user/${userId}`
           )
           .then((res) => {
-            console.log("response>>>", res);
             if (res.data.success) {
               setEmployeeProject(res.data.project);
             }
@@ -65,8 +64,6 @@ const EmployeeProjectList = ({ userId, tabId }) => {
     getAllEmp();
     // }
   }, [getAllEmp, getUserProject, tabId]);
-
-  console.log("employee data >>>>", employeeProject);
 
   return (
     <>
