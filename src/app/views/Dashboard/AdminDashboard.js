@@ -5,11 +5,13 @@ import Charts from "../../components/Charts";
 import DropDown from "../../components/DropDown";
 import PieChart from "../../components/PieChart";
 import { error } from "jquery";
+import ReactLoadingSpinner from "../../components/ReactLoadingSpinner";
 
 const AdminDashboard = () => {
   const [absentData, setAbsentData] = useState([]);
   const navigate = useNavigate();
   const [count, setCount] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [userData, setUserData] = useState("");
 
@@ -46,10 +48,12 @@ const AdminDashboard = () => {
   const fetchData = async () => {
     try {
       if (userData.length !== 0) {
+        setIsLoading(true);
         const attendanceGraphUrl = `https://academic-attendance.onrender.com/api/attendance/user?name=${userData}&year=${year}&month=${month}`;
         const data = await fetch(attendanceGraphUrl);
         const result = await data.json();
         setAbsentData(result);
+        setIsLoading(false);
       } else {
         return new error("User Data is Empty");
       }
@@ -106,7 +110,8 @@ const AdminDashboard = () => {
                 Fetch Graph
               </button>
             </div>
-            {absentData.length !== 0 && (
+            {isLoading && <ReactLoadingSpinner />}
+            {!isLoading && absentData.length !== 0 && (
               <div className="chart-main-div">
                 <Charts
                   presentDays={absentData.presentDays}
