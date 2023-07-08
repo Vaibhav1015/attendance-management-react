@@ -82,10 +82,6 @@ const StudentList = ({ employee, getEmp }) => {
                           </div>
                         </div>
                       </span>
-                      <span
-                        className="ms-3 bi bi-eye"
-                        onClick={() => navigate(`/employee-info/${emp._id}`)}
-                      ></span>
                     </td>
                   </tr>
                 );

@@ -77,6 +77,14 @@ const AdminDashboard = () => {
               </div>
             </div>
             <div className="col">
+              <div className="card" onClick={() => navigate("/student")}>
+                <div className="dashboard-cards card-body">
+                  <h5 className="card-title">Students</h5>
+                  <p className="card-text">{count && count.studentCount}</p>
+                </div>
+              </div>
+            </div>
+            <div className="col">
               <div className="card" onClick={() => navigate("/project")}>
                 <div className="dashboard-cards card-body">
                   <h5 className="card-title">Subjects</h5>
