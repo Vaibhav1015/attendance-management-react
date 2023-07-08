@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-const AddAttendance = ({
+const AddStudentAttendance = ({
   id,
   arialabelledby,
   tabIndex,
@@ -12,6 +12,7 @@ const AddAttendance = ({
   const [attDate, setAttDate] = useState();
   const [teacherData, setTeacherData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [classStdQuery, setclassStdQuery] = useState("");
 
   const onChangeValue = (id, present) => {
     let list = teacherData.map((ele) => {
@@ -26,8 +27,7 @@ const AddAttendance = ({
   useEffect(() => {
     const fetchAttendanceData = async () => {
       setIsLoading(true);
-      const url = "https://academic-attendance.onrender.com/api/getall";
-      // "http://localhost:5000/api/getall"
+      const url = "https://academic-attendance.onrender.com/api/students";
 
       const response = await fetch(url);
       if (!response.ok) {
@@ -43,11 +43,16 @@ const AddAttendance = ({
     fetchAttendanceData();
   }, []);
 
-  const postData = teacherData.map((ele) => {
+  const searchData = teacherData.filter((item) =>
+    item.classStd.includes(classStdQuery)
+  );
+
+  const postData = searchData.map((ele) => {
     const newObj = Object.assign({
       date: attDate,
-      name: ele.firstName + " " + ele.lastName,
+      fullName: ele.fullName,
       present: ele.present,
+      classStd: ele.classStd,
     });
     return newObj;
   });
@@ -56,7 +61,7 @@ const AddAttendance = ({
     e.preventDefault();
     try {
       const postUrl =
-        "https://academic-attendance.onrender.com/api/add-attendance";
+        "https://academic-attendance.onrender.com/api/add-student-attendance";
       // "https://academic-attendance.onrender.com/api/add-attendance"
       fetch(postUrl, {
         method: "POST",
@@ -70,6 +75,7 @@ const AddAttendance = ({
     }
   };
   const today = new Date().toISOString().split("T")[0];
+
   return (
     <div>
       <div
@@ -96,40 +102,53 @@ const AddAttendance = ({
             <div className="addAttendance-form modal-body">
               <form>
                 <div className="addAttendance_main-form ">
-                  <div className="attendance_date">
-                    <label className="date_label">Attendance Date</label>
-                    <input
-                      type="date"
-                      className="dates mb-3 w-25"
-                      value={attDate}
-                      max={today}
-                      min={today}
-                      onChange={(e) => setAttDate(e.target.value)}
-                    />
+                  <div className="d-flex  justify-content-between">
+                    <div className="attendance_date">
+                      <label className="date_label">Attendance Date</label>
+                      <input
+                        type="date"
+                        className="dates mb-3"
+                        value={attDate}
+                        max={today}
+                        min={today}
+                        onChange={(e) => setAttDate(e.target.value)}
+                      />
+                    </div>
+                    <div className="d-flex g-2">
+                      <p>Enter Class</p>
+                      <input
+                        className="dates"
+                        type="number"
+                        min="1"
+                        max="10"
+                        value={classStdQuery}
+                        onChange={(e) => setclassStdQuery(e.target.value)}
+                      />
+                    </div>
                   </div>
                   <div className="attendanceDivList">
                     <table className="table table-bordered">
                       <thead className="thead text-center">
                         <tr>
                           <th scope="col">Student Name</th>
+                          <th scope="col">Class</th>
                           <th scope="col">Present</th>
                           <th scope="col">Absent</th>
                         </tr>
                       </thead>
                       <tbody>
                         {isLoading && <div className="loaderDiv"></div>}
-                        {teacherData.map((item) => (
+                        {searchData.map((item) => (
                           <tr className="text-center">
-                            <th>
-                              {item.firstName} {item.lastName}
-                            </th>
+                            <th>{item.fullName}</th>
+                            <th>{item.classStd}</th>
                             <td>
                               <div className="form-check form-check-inline">
                                 <label>
                                   <input
                                     className="form-check-input"
                                     type="radio"
-                                    name={`${item.firstName + item.lastName}`}
+                                    name={`${item.fullName}`}
                                     id={item._id}
                                     value="true"
                                     checked={"true" === item.present}
@@ -149,7 +168,7 @@ const AddAttendance = ({
                                   <input
                                     className="form-check-input"
                                     type="radio"
-                                    name={`${item.firstName + item.lastName}`}
+                                    name={`${item.fullName}`}
                                     id={item._id}
                                     value="false"
                                     checked={"false" === item.present}
@@ -194,4 +213,4 @@ const AddAttendance = ({
     </div>
   );
 };
-export default AddAttendance;
+export default AddStudentAttendance;

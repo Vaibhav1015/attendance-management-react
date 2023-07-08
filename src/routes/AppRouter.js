@@ -9,6 +9,7 @@ import AdminLeaveList from "../app/views/AdminLeaveList/AdminLeaveList";
 import EmployeeDashboard from "../app/views/Dashboard/EmployeeDashboard";
 import Attendance from "../app/views/Attendance/Attendance";
 import Student from "../app/views/Student/Student";
+import StudentAttendance from "../app/views/StudentAttendance/StudentAttendance";
 
 const AppRouter = ({ roles, setHeaderImage }) => {
   return (
@@ -31,6 +32,10 @@ const AppRouter = ({ roles, setHeaderImage }) => {
         <Route path="/employee-info/:id" element={<EmployeeDashboard />} />
         <Route path="*" element={<Navigate to="/dashboard" />} />
         <Route path="/student" element={<Student />} />
+        <Route
+          path="/attendance-list-student"
+          element={<StudentAttendance />}
+        />
       </Route>
     </Routes>
   );
