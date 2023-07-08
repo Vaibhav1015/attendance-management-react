@@ -56,6 +56,13 @@ const Header = ({ headerImage }) => {
                   </Link>
                 </li>
               )}
+              {roles() && (
+                <li className="nav-item">
+                  <Link to="/student">
+                    <p className="nav-link">Students</p>
+                  </Link>
+                </li>
+              )}
 
               <li className="nav-item">
                 <Link to="/project">
@@ -73,6 +80,7 @@ const Header = ({ headerImage }) => {
                     <p className="nav-link ">Attendance</p>
                   </Link>
                 </li>
+                
               )}
             </ul>
           </div>

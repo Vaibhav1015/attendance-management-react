@@ -29,5 +29,10 @@ const config = {
   getBank: "/bank",
   addBank: "/addbank",
   editBank: "/bank",
+
+  //student
+  getStudentUrl: "/students",
+  deleteStudent: "/student/delete",
+  registerStudent: "/add-student",
 };
 export default config;
