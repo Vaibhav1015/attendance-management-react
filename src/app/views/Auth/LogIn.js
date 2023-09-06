@@ -58,20 +58,22 @@ const LogIn = () => {
 
   const [passwordShown, setPasswordShown] = useState(false);
 
-  // Password toggle handler
-  const togglePasswordVisibility = () => {
-    setPasswordShown(passwordShown ? false : true);
+  // show or hide password text
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
   };
+
 
   return (
     <div className=" login-main">
       <form onSubmit={handleSubmit(onSubmit)} className="login-form">
-        <img className="login-logo" src={logo} />
+        <img className="login-logo" src={logo} alt="" />
         <h1 className="text-center">Login</h1>
+        <h1 className="clgName">समाजसेवक विठ्ठल आंधळे शाळा व महावद्यालय, लिंबोडी.</h1>
         {errorMessage && (
           <span className="password-error text-danger">{errorMessage}</span>
         )}
-        <div>
+        <div className="loginInputDiv">
           <ReactInput
             register={{
               ...register("email", {
@@ -94,19 +96,14 @@ const LogIn = () => {
                 required: "Password cannot be empty",
               }),
             }}
-            icon={
-              <span
-                onClick={togglePasswordVisibility}
-                style={{ fontSize: "12px" }}
-              >
-                {passwordShown ? "Hide" : "Show"}
-              </span>
-            }
             label="Password"
             asterisk="true"
             name="password"
-            error={errors.password && <span>{errors.password.message}</span>}
           />
+          <img src={passwordShown ? '/images/view.png' : '/images/invisible.png'}
+            alt={passwordShown ? 'Show Password' : 'Hide Password'}
+            onClick={togglePassword}
+            className='eyeIcons' />
         </div>
 
         <button
